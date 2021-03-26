@@ -21,8 +21,6 @@ def caesar(text, shift, alphabets)
   line
 end
 
-File.open('encrypted_file', 'w'){}
-
 alphabets = []
 alphabets << ('A'..'Z').to_a
 alphabets << ('a'..'z').to_a
@@ -30,8 +28,9 @@ alphabets << ('А'..'Я').to_a
 alphabets << ('а'..'я').to_a
 alphabets << ('0'..'9').to_a
 
+File.open('encrypted_file', 'w'){}
 
-File.open('/home/runner/task2/to_histogram/lolkek.txt', 'r') do |file|
+File.open(file_path, 'r') do |file|
     for line in file
       File.open(encrypted_file, 'a'){|f| f.write(caesar(line, shift, alphabets))}
     end  
